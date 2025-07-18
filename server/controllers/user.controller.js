@@ -9,7 +9,7 @@ export const signup = async (req, res) => {
 
     try {
         if (!fullName || !email || !password || !bio) {
-            return res.josn({ success: false, message: "missing details" });
+            return (res.json = { success: false, message: "missing details" });
         }
 
         const user = await User.findOne({ email });
@@ -51,12 +51,11 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const userData = await User.findOne(email);
+        const userData = await User.findOne({ email });
 
         const isPasswordCorrect = await bcrypt.compare(
             password,
-            userData,
-            password
+            userData.password
         );
 
         if (!isPasswordCorrect) {
@@ -66,7 +65,7 @@ export const login = async (req, res) => {
             });
         }
 
-        const token = generateToken(user._id);
+        const token = generateToken(userData._id);
 
         res.json({
             success: true,
@@ -92,21 +91,19 @@ export const checkAuth = (req, res) => {
 export const updateProfile = async (req, res) => {
     try {
         const { profilePic, bio, fullName } = req.body;
-
         const userId = req.user._id;
 
         let updateUser;
 
         if (!profilePic) {
-            await User.findByIdAndUpdate(
+            updateUser = await User.findByIdAndUpdate(
                 userId,
                 { bio, fullName },
                 { new: true }
             );
         } else {
             const upload = await cloudinary.uploader.upload(profilePic);
-
-            updateUser = await User.findOneAndUpdate(
+            updateUser = await User.findByIdAndUpdate(
                 userId,
                 { profilePic: upload.secure_url, bio, fullName },
                 { new: true }
@@ -115,8 +112,7 @@ export const updateProfile = async (req, res) => {
 
         res.json({ success: true, user: updateUser });
     } catch (error) {
-        console.log(error.message);
-
+        console.log(`updating error: ${error.message}`);
         res.json({ success: false, message: error.message });
     }
 };
