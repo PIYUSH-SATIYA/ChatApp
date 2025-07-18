@@ -3,9 +3,11 @@ import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import ChatContainer from "../components/ChatContainer";
 import RightSidebar from "../components/RightSidebar";
+import { useContext } from "react";
+import { ChatContext } from "../../context/ChatContext";
 
 const HomePage = () => {
-    const [selectedUser, setSelectedUser] = useState(false);
+    const { selectedUser } = useContext(ChatContext);
 
     return (
         <div className="border w-full h-screen sm:px-[15%] sm:py-[5%] overflow-hidden">
@@ -16,19 +18,9 @@ const HomePage = () => {
                         : "md:grid-cols-2"
                 }`}
             >
-                <Sidebar
-                    selectedUser={selectedUser}
-                    setSelectedUser={setSelectedUser}
-                />
-                {/* To use the prop in the resp. comp we have to pass this state as a prop */}
-                <ChatContainer
-                    selectedUser={selectedUser}
-                    setSelectedUser={setSelectedUser}
-                />
-                <RightSidebar
-                    selectedUser={selectedUser}
-                    setSelectedUser={setSelectedUser}
-                />
+                <Sidebar />
+                <ChatContainer />
+                <RightSidebar />
             </div>
         </div>
     );
