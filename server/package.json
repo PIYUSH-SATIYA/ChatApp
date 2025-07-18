@@ -1,5 +1,5 @@
 {
-    "name": "server",
+    "name": "chatflow-server",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
@@ -7,10 +7,15 @@
         "dev": "node --env-file .env --watch server.js"
     },
     "type": "module",
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "chat",
+        "real-time",
+        "learning",
+        "websocket"
+    ],
+    "author": "Piyush",
     "license": "ISC",
-    "description": "",
+    "description": "ChatFlow Server - Learn, Chat, Flow. A learning project for real-time conversations",
     "dependencies": {
         "bcryptjs": "^3.0.2",
         "cloudinary": "^2.7.0",

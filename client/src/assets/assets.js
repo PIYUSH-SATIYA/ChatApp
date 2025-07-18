@@ -45,17 +45,17 @@ export const imagesDummyData = [pic1, pic2, pic3, pic4, pic1, pic2];
 export const userDummyData = [
     {
         _id: "680f50aaf10f3cd28382ecf2",
-        email: "test1@greatstack.dev",
+        email: "test1@chatflow.dev",
         fullName: "Alison Martin",
         profilePic: profile_alison,
-        bio: "Hi Everyone, I am Using QuickChat",
+        bio: "Hey there! I'm using ChatFlow to learn and connect",
     },
     {
         _id: "680f50e4f10f3cd28382ecf9",
-        email: "test2@greatstack.dev",
+        email: "test2@chatflow.dev",
         fullName: "Martin Johnson",
         profilePic: profile_martin,
-        bio: "Hi Everyone, I am Using QuickChat",
+        bio: "Learning and flowing with ChatFlow!",
     },
     {
         _id: "680f510af10f3cd28382ed01",

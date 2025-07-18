@@ -1,3 +1,7 @@
+# ChatFlow Learning Notes
+
+**Learn, Chat, Flow** - Development notes and learnings
+
 ## Key prop vs Index
 
 There are two ways to handle the array of elements in react: 1. indices as keys 2. non-index thing as keys.
@@ -41,7 +45,7 @@ By default all of it goes in test databse
 usually mongoDB url is like : `MONGODB_URI=mongodb://<user>:<pass>@host1,host2,host3/?replicaSet=...&ssl=true&authSource=admin`
 
 Explicitely set the DB name like:
-`MONGODB_URI=mongodb://<user>:<pass>@host1,host2,host3/nameoftheDataBase?replicaSet=...&ssl=true&authSource=admin`
+`MONGODB_URI=mongodb://<user>:<pass>@host1,host2,host3/chatflow_db?replicaSet=...&ssl=true&authSource=admin`
 
 ## onclick confusion
 
