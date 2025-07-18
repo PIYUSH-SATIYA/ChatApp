@@ -32,7 +32,7 @@ const Sidebar = () => {
 
     return (
         <div
-            className={`bg-[#8185B2]/10 h-full p-5 rounded-r-xl overflow-y-scroll text-white ${
+            className={`bg-black/10 h-full p-5 rounded-r-xl overflow-y-scroll text-white ${
                 selectedUser ? "max-md:hidden" : ""
             }`}
         >
@@ -47,7 +47,7 @@ const Sidebar = () => {
                             className="max-h-5 cursor-pointer"
                         />
 
-                        <div className="absolute top-full right-0 z-20 w-32 p-5 rounded-md bg-[#282142] border border-gray-600 text-gray-100 hidden group-hover:block">
+                        <div className="absolute top-full right-0 z-20 w-32 p-5 rounded-md bg-black border border-gray-600 text-gray-100 hidden group-hover:block">
                             <p
                                 onClick={() => navigate("/profile")}
                                 className="cursor-pointer text-sm"
@@ -65,7 +65,7 @@ const Sidebar = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#282142] rounded-full flex items-center gap-2 py-3 px-4 mt-5">
+                <div className="bg-black rounded-full flex items-center gap-2 py-3 px-4 mt-5">
                     <img
                         src={assets.search_icon}
                         alt="Search"
@@ -94,7 +94,7 @@ const Sidebar = () => {
                         }}
                         key={user._id}
                         className={`relative flex items-center gap-2 p-2 pl-4 rounded cursor-pointer max-sm:text-sm ${
-                            selectedUser?._id === user._id && "bg-[#282142]/50"
+                            selectedUser?._id === user._id && "bg-black/50"
                         }`}
                     >
                         <img
@@ -115,7 +115,7 @@ const Sidebar = () => {
                             )}
                         </div>
                         {unseenMessages[user._id] > 0 && (
-                            <p className="absolute top-4 right-4 text-xs h-5 w-5 flex justify-center items-center rounded-full bg-violet-500/50">
+                            <p className="absolute top-4 right-4 text-xs h-5 w-5 flex justify-center items-center rounded-full bg-white text-black border border-gray-600">
                                 {unseenMessages[user._id]}
                             </p>
                         )}

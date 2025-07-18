@@ -40,7 +40,7 @@ export const ChatProvider = ({ children }) => {
                 setMessages(data.messages);
             }
         } catch (error) {
-            toast.error(error.messages);
+            toast.error(error.response?.data?.message || error.message);
         }
     };
 
@@ -55,10 +55,10 @@ export const ChatProvider = ({ children }) => {
             if (data.success) {
                 setMessages((prevMessage) => [...prevMessage, data.newMessage]);
             } else {
-                toast.error(data.messages);
+                toast.error(data.message);
             }
         } catch (error) {
-            toast.error(error.messages);
+            toast.error(error.response?.data?.message || error.message);
         }
     };
 

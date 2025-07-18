@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 import assets, { messagesDummyData } from "../assets/assets";
 import { formatMessageTime } from "../lib/utils";
 import { ChatContext } from "../../context/ChatContext";
@@ -43,29 +44,32 @@ const ChatContainer = () => {
         reader.readAsDataURL(file);
     };
 
+    // Fetch messages when selectedUser changes
+    useEffect(() => {
+        if (selectedUser) {
+            getMessages(selectedUser._id);
+        }
+    }, [selectedUser]);
+
     useEffect(() => {
         if (scrollEnd.current && messages) {
-            scrollEnd.current.scrollIntoView({ behaviour: "smooth" });
+            scrollEnd.current.scrollIntoView({ behavior: "smooth" });
         }
     }, [messages]);
 
     useEffect(() => {
         // Only scroll if the container is visible (selectedUser exists)
         if (scrollEnd.current && selectedUser) {
-            // Prevent scroll events from bubbling up to parent containers
-            // const scrollOptions = { behavior: "smooth", block: "end" };
-            // setTimeout(() => {
-            scrollEnd.current.scrollIntoView();
-            // }, 100); // Small delay to ensure DOM is fully updated
+            scrollEnd.current.scrollIntoView({ behavior: "smooth" });
         }
-    });
+    }, [selectedUser]);
 
     return selectedUser ? (
         // Add overflow-hidden to ensure scrolling is contained within this component
         // This is very imp, otherwise the flex container will just grow longer and longer as the messages get incresed, which stretches the user list container too
         <div className="h-full flex flex-col relative backdrop-blur-lg overflow-hidden">
             {/* Header */}
-            <div className="flex items-center gap-3 py-3 mx-4 border-b border-stone-500">
+            <div className="flex items-center gap-3 py-3 mx-4 border-b border-gray-500">
                 <img
                     src={selectedUser.profilePic || assets.avatar_icon}
                     alt=""
@@ -110,10 +114,10 @@ const ChatContainer = () => {
                             />
                         ) : (
                             <p
-                                className={`p-2 max-w-[200px] md:text-sm font-light rounded-lg mb-8 break-all bg-violet-500/30 text-white ${
+                                className={`p-2 max-w-[200px] md:text-sm font-light rounded-lg mb-8 break-all text-white ${
                                     msg.senderId === authUser._id
-                                        ? "rounded-br-none"
-                                        : "rounded-bl-none"
+                                        ? "rounded-br-none bg-gray-800"
+                                        : "rounded-bl-none bg-gray-700"
                                 }`}
                             >
                                 {msg.text}
@@ -140,9 +144,7 @@ const ChatContainer = () => {
                 <div ref={scrollEnd}></div>
             </div>
             {/* Bottom Area */}
-            <div className="sticky bottom-0 left-0 right-0 flex items-center gap-3 p-3 bg-[#282142]/50 backdrop-blur-sm">
-                {" "}
-                {/* Changed from absolute to sticky */}
+            <div className="sticky bottom-0 left-0 right-0 flex items-center gap-3 p-3 bg-black/50 backdrop-blur-sm">
                 <div className="flex-1 flex item-center bg-gray-100/12 px-3 rounded-full">
                     <input
                         onChange={(e) => setInput(e.target.value)}

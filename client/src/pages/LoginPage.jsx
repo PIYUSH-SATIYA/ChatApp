@@ -59,7 +59,7 @@ const LoginPage = () => {
                 {currState === "Sign up" && !isDataSubmitted && (
                     <input
                         type="text"
-                        className="border-2 border-gray-500 p-2 rounded-md focus:outline-none"
+                        className="border-2 border-gray-500 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-transparent text-white placeholder-gray-400"
                         placeholder="Full Name"
                         onChange={(e) => setFullName(e.target.value)}
                         value={fullName}
@@ -71,7 +71,7 @@ const LoginPage = () => {
                     <>
                         <input
                             type="email"
-                            className="border-2 border-gray-500 p-2 rounded-md focus:outline-none"
+                            className="border-2 border-gray-500 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-transparent text-white placeholder-gray-400"
                             placeholder="Email"
                             required
                             value={email}
@@ -79,7 +79,7 @@ const LoginPage = () => {
                         />
                         <input
                             type="password"
-                            className="border-2 border-gray-500 p-2 rounded-md focus:outline-none"
+                            className="border-2 border-gray-500 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-transparent text-white placeholder-gray-400"
                             placeholder="Password"
                             required
                             value={password}
@@ -90,7 +90,7 @@ const LoginPage = () => {
 
                 {currState === "Sign up" && isDataSubmitted && (
                     <textarea
-                        className="border-2 border-gray-500 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="border-2 border-gray-500 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-transparent text-white placeholder-gray-400"
                         placeholder="Bio"
                         value={bio}
                         required
@@ -100,7 +100,7 @@ const LoginPage = () => {
 
                 <button
                     type="submit"
-                    className="py-3 bg-gradient-to-r from-purple-400 to-violet-600 text-white rounded-md cursor-pointer"
+                    className="py-3 bg-gradient-to-r from-gray-800 to-black text-white rounded-md cursor-pointer hover:from-gray-700 hover:to-gray-800 transition-all"
                 >
                     {currState === "Sign up" ? "Create Account" : "Login Now"}
                 </button>
@@ -115,7 +115,7 @@ const LoginPage = () => {
                         <p className="text-sm text-gray-600">
                             Already have an account?{" "}
                             <span
-                                className="font-medium text-violet-500 cursor-pointer"
+                                className="font-medium text-gray-300 cursor-pointer hover:text-white"
                                 onClick={() => {
                                     setCurrState("Login");
                                     setIsDataSubmitted(false);
@@ -128,7 +128,7 @@ const LoginPage = () => {
                         <p className="text-sm text-gray-600">
                             Create an account?
                             <span
-                                className="font-medium text-violet-500 cursor-pointer"
+                                className="font-medium text-gray-300 cursor-pointer hover:text-white"
                                 onClick={() => setCurrState("Sign up")}
                             >
                                 Sign up

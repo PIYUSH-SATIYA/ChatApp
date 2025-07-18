@@ -35,7 +35,7 @@ const ProfilePage = () => {
 
     return (
         <div className="min-h-screen bg-cover bg-no-repeat flex items-center justify-center">
-            <div className="w-5/6 max-w-2xl backdrop-blur-2xl text-gray-300 border-2 border-gray-600 flex items-center justify-between max-sm:flex-col-reverse rounded-lg">
+            <div className="w-5/6 max-w-2xl backdrop-blur-2xl text-gray-300 border-2 border-gray-400 flex items-center justify-between max-sm:flex-col-reverse rounded-lg">
                 <form
                     onSubmit={handleSubmit}
                     className="flex flex-col gap-5 p-10 flex-1"
@@ -73,19 +73,19 @@ const ProfilePage = () => {
                         required
                         placeholder="Your Name"
                         type="text"
-                        className="p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
+                        className="p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 bg-transparent text-white"
                     />
                     <textarea
                         onChange={(e) => setBio(e.target.value)}
                         value={bio}
                         placeholder="Write profile bio"
                         required
-                        className="p-2 border border-gray-500 rounded-md focus:ring-2 focus:ring-violet-500"
+                        className="p-2 border border-gray-500 rounded-md focus:ring-2 focus:ring-gray-400 bg-transparent text-white"
                         rows={4}
                     ></textarea>
                     <button
                         type="submit"
-                        className="bg-gradient-to-r from-purple-400 to-violet-600 text-white p-2 rounded-full text-lg cursor-pointer"
+                        className="bg-gradient-to-r from-gray-800 to-black text-white p-2 rounded-full text-lg cursor-pointer hover:from-gray-700 hover:to-gray-800 transition-all"
                     >
                         Save
                     </button>

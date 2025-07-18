@@ -61,7 +61,7 @@ const RightSidebar = () => {
                 </div>
                 <button
                     onClick={() => logout()}
-                    className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-400 to-violet-600 text-white border-none text-sm font-light py-2 px-20 rounded-full cursor-pointer"
+                    className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-800 to-black text-white border-none text-sm font-light py-2 px-20 rounded-full cursor-pointer hover:from-gray-700 hover:to-gray-800 transition-all"
                 >
                     Logout
                 </button>
